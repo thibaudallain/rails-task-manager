@@ -1,14 +1,18 @@
-<h1>My Tasks</h1>
-<ul>
-  <% @tasks.each do |task| %>
-  <% check = task.completed == true ? "✅" : "❎" %>
-  <li>
-    <%= link_to check + " " + task.title, task_path(task[:id]) %>
-    <%= link_to "Destroy", delete_path(task) %>
-    <%= link_to "Mark as done", mark_path(task), method: :post %>
+<div class="container">
+  <h1>My Tasks</h1>
+  <ul>
+    <% @tasks.each do |task| %>
+    <% check = task.completed == true ? "✅" : "❎" %>
+    <li>
+      <%= link_to check + " " + task.title, task_path(task[:id]), class: 'title' %>
+      <div class="actions">
+        <%= link_to "Destroy", delete_path(task), class: 'btn btn-danger' %>
+        <%= link_to "Mark as done", mark_path(task), method: :post, class: 'btn btn-secondary' %>
+      </div>
 
-  </li>
-  <% end %>
-</ul>
+    </li>
+    <% end %>
+  </ul>
 
-<%= link_to "Create", tasks_new_path %>
+  <%= link_to "Create", tasks_new_path, class: 'btn btn-success' %>
+</div>

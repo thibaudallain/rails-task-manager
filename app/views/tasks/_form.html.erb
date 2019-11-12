@@ -1,14 +1,19 @@
 <%= form_for(@task) do |f| %>
+  <div class="form-group">
+    <%= f.label :title, class: "col-md-4 control-label" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.label :details, class: "col-md-4 control-label" %>
+    <%= f.text_field :details, class: "form-control"%>
+  </div>
 
-  <%= f.label :details %>
-  <%= f.text_field :details %>
+  <div class="form-group">
+    <%= f.label :completed, class: "col-md-4 control-label" %>
+    <%= f.check_box :completed, type: "checkbox", class: "form-control"%>
+  </div>
 
-  <%= f.label :completed %>
-  <%= f.check_box :completed %>
-
-  <%= f.submit %>
+  <%= f.submit class: 'btn btn-primary'%>
 
 <% end %>
