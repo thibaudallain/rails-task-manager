@@ -1,0 +1,14 @@
+<h1>My Tasks</h1>
+<ul>
+  <% @tasks.each do |task| %>
+  <% check = task.completed == true ? "✅" : "❎" %>
+  <li>
+    <%= link_to check + " " + task.title, task_path(task[:id]) %>
+    <%= link_to "Destroy", delete_path(task) %>
+    <%= link_to "Mark as done", mark_path(task), method: :post %>
+
+  </li>
+  <% end %>
+</ul>
+
+<%= link_to "Create", tasks_new_path %>
